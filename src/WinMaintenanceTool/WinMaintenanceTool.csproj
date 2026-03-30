@@ -10,19 +10,18 @@
     <RootNamespace>WinMaintenanceTool</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ApplicationIcon>Assets\Icon.ico</ApplicationIcon> 
   </PropertyGroup>
+
+<ItemGroup>
+  <Resource Include="Assets\Icon.png" />
+  <Resource Include="Assets\Icon.ico" />
+</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
     <PackageReference Include="WPF-UI" Version="4.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Assets\Icon.png" />
-    <Content Include="Assets\Icon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
