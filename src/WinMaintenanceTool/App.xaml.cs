@@ -49,7 +49,14 @@ public partial class App : Application
         var localization = _host.Services.GetRequiredService<ILocalizationService>();
 
         localization.SetLanguage(settings.Current.Language);
-        ApplicationThemeManager.Apply(settings.Current.Theme);
+        if (settings.Current.Theme == ApplicationTheme.Unknown)
+        {
+            ApplicationThemeManager.ApplySystemTheme();
+        }
+        else
+        {
+            ApplicationThemeManager.Apply(settings.Current.Theme);
+        }
 
         var mainWindow = _host.Services.GetRequiredService<MainWindow>();
         mainWindow.Show();
