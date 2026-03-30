@@ -15,7 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
-    <PackageReference Include="Wpf.Ui" Version="4.1.0" />
+    <PackageReference Include="WPF-UI" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
