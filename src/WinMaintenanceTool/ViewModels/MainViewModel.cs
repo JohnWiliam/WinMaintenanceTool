@@ -15,6 +15,7 @@ public enum AppPage
 public sealed class MainViewModel : ViewModelBase
 {
     private AppPage _currentPage = AppPage.Home;
+    private object _currentPageViewModel;
 
     public MainViewModel(HomeViewModel homeViewModel, SfcViewModel sfcViewModel, DismViewModel dismViewModel, SettingsViewModel settingsViewModel, ILocalizationService localizationService)
     {
@@ -22,6 +23,7 @@ public sealed class MainViewModel : ViewModelBase
         Sfc = sfcViewModel;
         Dism = dismViewModel;
         Settings = settingsViewModel;
+        _currentPageViewModel = homeViewModel;
 
         NavigateHomeCommand = new RelayCommand(() => CurrentPage = AppPage.Home);
         NavigateSfcCommand = new RelayCommand(() => CurrentPage = AppPage.Sfc);
@@ -48,7 +50,19 @@ public sealed class MainViewModel : ViewModelBase
     public AppPage CurrentPage
     {
         get => _currentPage;
-        set => SetProperty(ref _currentPage, value);
+        set
+        {
+            if (!SetProperty(ref _currentPage, value))
+                return;
+
+            CurrentPageViewModel = GetViewModelForPage(value);
+        }
+    }
+
+    public object CurrentPageViewModel
+    {
+        get => _currentPageViewModel;
+        private set => SetProperty(ref _currentPageViewModel, value);
     }
 
     public string AppTitle { get; private set; } = string.Empty;
@@ -62,4 +76,14 @@ public sealed class MainViewModel : ViewModelBase
         Home.Refresh();
         Settings.Refresh();
     }
+
+    private object GetViewModelForPage(AppPage page)
+        => page switch
+        {
+            AppPage.Home => Home,
+            AppPage.Sfc => Sfc,
+            AppPage.Dism => Dism,
+            AppPage.Settings => Settings,
+            _ => Home
+        };
 }

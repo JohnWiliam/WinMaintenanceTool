@@ -4,6 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:vm="clr-namespace:WinMaintenanceTool.ViewModels"
                  xmlns:views="clr-namespace:WinMaintenanceTool.Views"
                  mc:Ignorable="d"
                  Title="{Binding AppTitle}"
@@ -16,7 +17,18 @@
                  ExtendsContentIntoTitleBar="True"
                  WindowBackdropType="Mica">
     <ui:FluentWindow.Resources>
-        <views:AppPageToVisibilityConverter x:Key="AppPageVisibility" />
+        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+            <views:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SfcViewModel}">
+            <views:SfcView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:DismViewModel}">
+            <views:DismView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+            <views:SettingsView />
+        </DataTemplate>
     </ui:FluentWindow.Resources>
 
     <Grid Margin="16">
@@ -31,12 +43,7 @@
             <Button Content="⌂" Width="36" Height="36" Margin="12,0,0,0" Command="{Binding NavigateHomeCommand}" ToolTip="Home" />
         </DockPanel>
 
-        <Grid Grid.Row="1">
-            <views:HomeView Visibility="{Binding CurrentPage, Converter={StaticResource AppPageVisibility}, ConverterParameter=Home}" DataContext="{Binding Home}" />
-            <views:SfcView Visibility="{Binding CurrentPage, Converter={StaticResource AppPageVisibility}, ConverterParameter=Sfc}" DataContext="{Binding Sfc}" />
-            <views:DismView Visibility="{Binding CurrentPage, Converter={StaticResource AppPageVisibility}, ConverterParameter=Dism}" DataContext="{Binding Dism}" />
-            <views:SettingsView Visibility="{Binding CurrentPage, Converter={StaticResource AppPageVisibility}, ConverterParameter=Settings}" DataContext="{Binding Settings}" />
-        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel}" />
 
         <DockPanel Grid.Row="2" Margin="0,12,0,0">
             <Button Content="⚙️" Width="40" Height="40" HorizontalAlignment="Right" Command="{Binding NavigateSettingsCommand}" ToolTip="Settings" />
