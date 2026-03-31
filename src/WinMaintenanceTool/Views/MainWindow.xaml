@@ -14,7 +14,7 @@
                  ResizeMode="CanResize"
                  WindowStartupLocation="CenterScreen"
                  ExtendsContentIntoTitleBar="True"
-                 WindowBackdropType="MicaAlt">
+                 WindowBackdropType="Mica">
     <ui:FluentWindow.Resources>
         <views:AppPageToVisibilityConverter x:Key="AppPageVisibility" />
     </ui:FluentWindow.Resources>
