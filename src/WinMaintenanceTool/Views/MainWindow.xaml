@@ -14,8 +14,9 @@
                  MinHeight="620"
                  ResizeMode="CanResize"
                  WindowStartupLocation="CenterScreen"
-                 ExtendsContentIntoTitleBar="False"
+                 ExtendsContentIntoTitleBar="True"
                  WindowBackdropType="Mica">
+    
     <ui:FluentWindow.Resources>
         <DataTemplate DataType="{x:Type vm:HomeViewModel}">
             <views:HomeView />
@@ -31,31 +32,40 @@
         </DataTemplate>
     </ui:FluentWindow.Resources>
 
-    <Grid Margin="16">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:Card Grid.Row="0" Padding="8" Margin="0,0,0,12">
-            <DockPanel LastChildFill="False">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
-                    <Button Margin="0,0,8,0" Command="{Binding NavigateHomeCommand}" ToolTip="{Binding NavHomeLabel}">
-                        <StackPanel Orientation="Horizontal">
-                            <ui:SymbolIcon Symbol="Home24" Margin="0,0,6,0" />
-                            <TextBlock Text="{Binding NavHomeLabel}" />
-                        </StackPanel>
+        <ui:TitleBar Grid.Row="0" Title="{Binding AppTitle}" />
+
+        <Grid Grid.Row="1" Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ui:Card Grid.Row="0" Padding="8" Margin="0,0,0,12">
+                <DockPanel LastChildFill="False">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                        <Button Margin="0,0,8,0" Command="{Binding NavigateHomeCommand}" ToolTip="{Binding NavHomeLabel}">
+                            <StackPanel Orientation="Horizontal">
+                                <ui:SymbolIcon Symbol="Home24" Margin="0,0,6,0" />
+                                <TextBlock Text="{Binding NavHomeLabel}" />
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="0,0,8,0" Command="{Binding NavigateSfcCommand}" Content="{Binding NavSfcLabel}" />
+                        <Button Command="{Binding NavigateDismCommand}" Content="{Binding NavDismLabel}" />
+                    </StackPanel>
+
+                    <Button DockPanel.Dock="Right" Command="{Binding NavigateSettingsCommand}" ToolTip="{Binding NavSettingsLabel}">
+                        <ui:SymbolIcon Symbol="Settings24" />
                     </Button>
-                    <Button Margin="0,0,8,0" Command="{Binding NavigateSfcCommand}" Content="{Binding NavSfcLabel}" />
-                    <Button Command="{Binding NavigateDismCommand}" Content="{Binding NavDismLabel}" />
-                </StackPanel>
+                </DockPanel>
+            </ui:Card>
 
-                <Button DockPanel.Dock="Right" Command="{Binding NavigateSettingsCommand}" ToolTip="{Binding NavSettingsLabel}">
-                    <ui:SymbolIcon Symbol="Settings24" />
-                </Button>
-            </DockPanel>
-        </ui:Card>
-
-        <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel}" />
+            <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel}" />
+        </Grid>
     </Grid>
 </ui:FluentWindow>
