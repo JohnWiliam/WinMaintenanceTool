@@ -1,3 +1,4 @@
+using System.Globalization;
 using WinMaintenanceTool.Models;
 using WinMaintenanceTool.Resources;
 using WinMaintenanceTool.Services;
@@ -8,6 +9,7 @@ public sealed class DismViewModel(ICommandRunnerService commandRunnerService) : 
 {
     public string Title => Strings.DismTitle;
     public string Description => Strings.DismDescription;
+    public string ActionCountLabel => string.Format(CultureInfo.CurrentCulture, Strings.AvailableActionsTemplate, Actions.Count);
 
     public void Reload()
     {
@@ -19,6 +21,9 @@ public sealed class DismViewModel(ICommandRunnerService commandRunnerService) : 
         Actions.Add(new MaintenanceAction(Strings.DismCleanupTitle, Strings.DismCleanupDesc, "DISM /Online /Cleanup-Image /StartComponentCleanup"));
         Actions.Add(new MaintenanceAction(Strings.DismResetBaseTitle, Strings.DismResetBaseDesc, "DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase"));
 
+        RaisePropertyChanged(nameof(Title));
+        RaisePropertyChanged(nameof(Description));
+        RaisePropertyChanged(nameof(ActionCountLabel));
         RefreshCommonLocalizedText();
     }
 }

@@ -57,4 +57,14 @@
   <data name="RunningAction" xml:space="preserve"><value>Running action</value></data>
   <data name="ProcessCompleted" xml:space="preserve"><value>Process completed.</value></data>
   <data name="ExecutionError" xml:space="preserve"><value>Execution error</value></data>
+  <data name="CancelButton" xml:space="preserve"><value>Cancel</value></data>
+  <data name="ClearLogButton" xml:space="preserve"><value>Clear log</value></data>
+  <data name="NoExitCode" xml:space="preserve"><value>No process executed yet.</value></data>
+  <data name="LastExitCodeTemplate" xml:space="preserve"><value>Last exit code: {0}</value></data>
+  <data name="StatusReady" xml:space="preserve"><value>Ready to execute a maintenance action.</value></data>
+  <data name="StatusRunningTemplate" xml:space="preserve"><value>Running: {0}</value></data>
+  <data name="StatusIdleWithSelectionTemplate" xml:space="preserve"><value>Selected action: {0}</value></data>
+  <data name="ProcessCancelled" xml:space="preserve"><value>Process cancelled by the user.</value></data>
+  <data name="ProcessCompletedWithExitCodeTemplate" xml:space="preserve"><value>Process completed with exit code {0}.</value></data>
+  <data name="AvailableActionsTemplate" xml:space="preserve"><value>Available actions: {0}</value></data>
 </root>

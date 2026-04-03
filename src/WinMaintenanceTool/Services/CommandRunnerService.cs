@@ -11,7 +11,7 @@ public sealed class CommandRunnerService : ICommandRunnerService
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
     }
 
-    public async Task RunAsync(string fileName, string arguments, Action<string> onOutput, CancellationToken cancellationToken = default)
+    public async Task<int> RunAsync(string fileName, string arguments, Action<string> onOutput, CancellationToken cancellationToken = default)
     {
         var processEncoding = ResolveProcessEncoding();
 
@@ -66,6 +66,7 @@ public sealed class CommandRunnerService : ICommandRunnerService
 
         await process.WaitForExitAsync(cancellationToken);
         SafeOutput(onOutput, $"Exit code: {process.ExitCode}");
+        return process.ExitCode;
     }
 
     private static void SafeOutput(Action<string> onOutput, string line)

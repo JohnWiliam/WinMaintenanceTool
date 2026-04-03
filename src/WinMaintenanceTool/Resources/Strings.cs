@@ -62,4 +62,15 @@ public static class Strings
     public static string RunningAction => Get(nameof(RunningAction));
     public static string ProcessCompleted => Get(nameof(ProcessCompleted));
     public static string ExecutionError => Get(nameof(ExecutionError));
+
+    public static string CancelButton => Get(nameof(CancelButton));
+    public static string ClearLogButton => Get(nameof(ClearLogButton));
+    public static string NoExitCode => Get(nameof(NoExitCode));
+    public static string LastExitCodeTemplate => Get(nameof(LastExitCodeTemplate));
+    public static string StatusReady => Get(nameof(StatusReady));
+    public static string StatusRunningTemplate => Get(nameof(StatusRunningTemplate));
+    public static string StatusIdleWithSelectionTemplate => Get(nameof(StatusIdleWithSelectionTemplate));
+    public static string ProcessCancelled => Get(nameof(ProcessCancelled));
+    public static string ProcessCompletedWithExitCodeTemplate => Get(nameof(ProcessCompletedWithExitCodeTemplate));
+    public static string AvailableActionsTemplate => Get(nameof(AvailableActionsTemplate));
 }
