@@ -14,17 +14,17 @@
 
         <ui:Card Grid.Row="1" Margin="0,14,0,0" Padding="16">
             <StackPanel>
-                <TextBlock Text="{Binding LanguageLabel}" FontWeight="SemiBold" />
-                <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" DisplayMemberPath="DisplayName" Margin="0,10,0,8" />
-                <Button Content="{Binding ApplyLanguageLabel}" Command="{Binding ApplyLanguageCommand}" />
+                <TextBlock x:Name="LanguageLabelText" Text="{Binding LanguageLabel}" FontWeight="SemiBold" />
+                <ComboBox AutomationProperties.LabeledBy="{Binding ElementName=LanguageLabelText}" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" DisplayMemberPath="DisplayName" Margin="0,10,0,8" />
+                <Button Content="{Binding ApplyLanguageLabel}" AutomationProperties.Name="{Binding ApplyLanguageLabel}" Command="{Binding ApplyLanguageCommand}" />
             </StackPanel>
         </ui:Card>
 
         <ui:Card Grid.Row="2" Margin="0,10,0,0" Padding="16">
             <StackPanel>
-                <TextBlock Text="{Binding ThemeLabel}" FontWeight="SemiBold" />
-                <ComboBox ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme}" DisplayMemberPath="DisplayName" Margin="0,10,0,8" />
-                <Button Content="{Binding ApplyThemeLabel}" Command="{Binding ApplyThemeCommand}" />
+                <TextBlock x:Name="ThemeLabelText" Text="{Binding ThemeLabel}" FontWeight="SemiBold" />
+                <ComboBox AutomationProperties.LabeledBy="{Binding ElementName=ThemeLabelText}" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme}" DisplayMemberPath="DisplayName" Margin="0,10,0,8" />
+                <Button Content="{Binding ApplyThemeLabel}" AutomationProperties.Name="{Binding ApplyThemeLabel}" Command="{Binding ApplyThemeCommand}" />
             </StackPanel>
         </ui:Card>
     </Grid>

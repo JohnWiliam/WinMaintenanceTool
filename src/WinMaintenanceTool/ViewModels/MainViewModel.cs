@@ -51,9 +51,8 @@ public sealed class MainViewModel : ViewModelBase
         get => _currentPage;
         set
         {
-            if (!SetProperty(ref _currentPage, value))
-                return;
-
+            _currentPage = value;
+            RaisePropertyChanged();
             CurrentPageViewModel = GetViewModelForPage(value);
         }
     }
@@ -61,7 +60,11 @@ public sealed class MainViewModel : ViewModelBase
     public object CurrentPageViewModel
     {
         get => _currentPageViewModel;
-        private set => SetProperty(ref _currentPageViewModel, value);
+        private set
+        {
+            _currentPageViewModel = value;
+            RaisePropertyChanged();
+        }
     }
 
     public string AppTitle { get; private set; } = string.Empty;

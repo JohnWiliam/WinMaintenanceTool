@@ -59,21 +59,21 @@
                     <StackPanel>
                         <TextBlock Text="{Binding AppTitle}" FontWeight="SemiBold" FontSize="16" Margin="4,4,4,14" TextWrapping="Wrap" />
 
-                        <Button Command="{Binding NavigateHomeCommand}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
+                        <Button Command="{Binding NavigateHomeCommand}" AutomationProperties.Name="{Binding NavHomeLabel}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon Symbol="Home24" Margin="0,0,8,0" />
                                 <TextBlock Text="{Binding NavHomeLabel}" />
                             </StackPanel>
                         </Button>
 
-                        <Button Command="{Binding NavigateSfcCommand}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
+                        <Button Command="{Binding NavigateSfcCommand}" AutomationProperties.Name="{Binding NavSfcLabel}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon Symbol="Shield24" Margin="0,0,8,0" />
                                 <TextBlock Text="{Binding NavSfcLabel}" />
                             </StackPanel>
                         </Button>
 
-                        <Button Command="{Binding NavigateDismCommand}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
+                        <Button Command="{Binding NavigateDismCommand}" AutomationProperties.Name="{Binding NavDismLabel}" Padding="10,8" Margin="0,0,0,8" HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon Symbol="Settings24" Margin="0,0,8,0" />
                                 <TextBlock Text="{Binding NavDismLabel}" />
@@ -81,7 +81,7 @@
                         </Button>
                     </StackPanel>
 
-                    <Button Grid.Row="2" Command="{Binding NavigateSettingsCommand}" Padding="10,8" HorizontalContentAlignment="Left">
+                    <Button Grid.Row="2" Command="{Binding NavigateSettingsCommand}" AutomationProperties.Name="{Binding NavSettingsLabel}" Padding="10,8" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <ui:SymbolIcon Symbol="Settings24" Margin="0,0,8,0" />
                             <TextBlock Text="{Binding NavSettingsLabel}" />

@@ -26,6 +26,8 @@
                     BorderThickness="0"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
+                    AutomationProperties.Name="{Binding OpenSfcLabel}"
+                    AutomationProperties.HelpText="{Binding SfcDescription}"
                     Command="{Binding DataContext.NavigateSfcCommand, RelativeSource={RelativeSource AncestorType=Window}}">
                 <ui:Card Padding="18" Height="230">
                     <Grid>
@@ -51,6 +53,8 @@
                     BorderThickness="0"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
+                    AutomationProperties.Name="{Binding OpenDismLabel}"
+                    AutomationProperties.HelpText="{Binding DismDescription}"
                     Command="{Binding DataContext.NavigateDismCommand, RelativeSource={RelativeSource AncestorType=Window}}">
                 <ui:Card Padding="18" Height="230">
                     <Grid>
